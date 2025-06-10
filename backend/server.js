@@ -1,68 +1,112 @@
-const cors = require('cors');
-// importar o framework para gerenciar o servidor e as rotas
 const express = require('express');
-// importar o body-parser para analisar o corpo das requisições
-const bodyParser = require('body-parser');
-// importar o módulo fs para manipular o sistema de arquivos
 const fs = require('fs');
-// importar o módulo path para manipular caminhos de arquivos
+const cors = require('cors');
 const path = require('path');
-// criar uma instância do express
+
 const app = express();
-// criar uma variável para armazenar a porta do servidor
-const PORT = 3000;
+app.use(cors());
+app.use(express.json());
 
-// criar uma variável para armazenar o caminho do arquivo de tarefas
-const DB_FILE = path.join(__dirname, 'db.json');
+// Caminho para o arquivo JSON
+const mockTasksPath = path.join(__dirname, 'mockTasks.json');
 
-// configurar o body-parser para analisar o corpo das requisições
-app.use(bodyParser.json());
+// Função auxiliar para ler tarefas do arquivo JSON
+const readTasks = () => {
+  try {
+    return JSON.parse(fs.readFileSync(mockTasksPath, 'utf8'));
+  } catch (error) {
+    console.error('Erro ao ler tarefas:', error);
+    throw new Error('Erro ao ler tarefas');
+  }
+};
 
-app.use(cors);
+// Função auxiliar para salvar tarefas no arquivo JSON
+const writeTasks = (tasks) => {
+  try {
+    fs.writeFileSync(mockTasksPath, JSON.stringify(tasks, null, 2));
+  } catch (error) {
+    console.error('Erro ao salvar tarefas:', error);
+    throw new Error('Erro ao salvar tarefas');
+  }
+};
 
-// configurar o express para servir arquivos estáticos
-app.use(express.static(path.join(__dirname, '../frontend')));
-// verificar se o arquivo de tarefas existe
-if (!fs.existsSync(DB_FILE)) {
-    fs.writeFileSync(DB_FILE, JSON.stringify({tarefas: []}));
-}
-
-//-----------ROTAS-----------
-
-
-// rota para listar todas as tarefas
-app.get('/tarefas', (req, res) => {
-    const data = JSON.parse(fs.readFileSync(DB_FILE));
-    res.json(data.tarefas);
+// Endpoint para obter todas as tarefas
+app.get('/tasks', (req, res) => {
+  try {
+    const tasks = readTasks();
+    res.json(tasks); // Retorna todas as tarefas, incluindo a descrição
+  } catch (error) {
+    res.status(500).json({ error: 'Erro ao obter tarefas' });
+  }
 });
 
-// rota para criar uma nova tarefa 
-app.post('/tarefas', (req, res) => {
-    // obter os dados da tarefa do corpo da requisição
-    const {tarefa, descricao} = req.body;
-
-    if (!tarefa || !descricao) {
-        return res.status(400).json({message: 'Tarefa e descrição são obrigatórios'});
-    }
-    // ler o arquivo de tarefas
-    const data = JSON.parse(fs.readFileSync(DB_FILE));
-
-    const novaTarefa = {
-        id: Date.now(),
-        tarefa,
-        descricao,
-        dataCriacao: new Date().toISOString()//Salvar a data e hora da criação da tarefa
+// Endpoint para adicionar uma nova tarefa
+app.post('/tasks', (req, res) => {
+  try {
+    const tasks = readTasks();
+    const newTask = {
+      id: tasks.length + 1,
+      title: req.body.title,
+      description: req.body.description, // Inclui a descrição
+      completed: false,
     };
-    // adicionar a nova tarefa ao array de tarefas
-    data.tarefas.push(novaTarefa);
-    // escrever o arquivo de tarefas
-    fs.writeFileSync(DB_FILE, JSON.stringify({tarefas: data}));
-    // enviar a resposta com status 201 e a nova tarefa
-    res.status(201).json(novaTarefa);
+
+    tasks.push(newTask);
+    writeTasks(tasks);
+    res.status(201).json(newTask);
+  } catch (error) {
+    console.error('Erro ao adicionar tarefa:', error);
+    res.status(500).json({ error: 'Erro ao adicionar tarefa' });
+  }
 });
 
+// Atualizar tarefa
+app.put('/tasks/:id', (req, res) => {
+  try {
+    console.log('ID recebido:', req.params.id);
+    console.log('Dados recebidos:', req.body);
 
-// iniciar o servidor na porta 3000
-app.listen(PORT, () => {
-    console.log('Servidor rodando na porta 3000');
+    const tasks = readTasks();
+    const taskId = parseInt(req.params.id, 10);
+    const taskIndex = tasks.findIndex((task) => task.id === taskId);
+
+    if (taskIndex === -1) {
+      return res.status(404).json({ error: 'Tarefa não encontrada' });
+    }
+
+    const updatedTask = { ...tasks[taskIndex], ...req.body };
+    tasks[taskIndex] = updatedTask;
+
+    writeTasks(tasks);
+    res.json(updatedTask);
+  } catch (error) {
+    console.error('Erro ao atualizar tarefa:', error);
+    res.status(500).json({ error: 'Erro ao atualizar tarefa' });
+  }
+});
+
+// Excluir tarefa
+app.delete('/tasks/:id', (req, res) => {
+  try {
+    const tasks = readTasks();
+    const taskId = parseInt(req.params.id, 10);
+    const taskIndex = tasks.findIndex((task) => task.id === taskId);
+
+    if (taskIndex === -1) {
+      return res.status(404).json({ error: 'Tarefa não encontrada' });
+    }
+
+    tasks.splice(taskIndex, 1);
+    writeTasks(tasks);
+    res.status(204).send(); 
+  } catch (error) {
+    console.error('Erro ao excluir tarefa:', error);
+    res.status(500).json({ error: 'Erro ao excluir tarefa' });
+  }
+});
+
+// Iniciar o servidor
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
