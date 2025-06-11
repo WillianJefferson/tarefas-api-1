@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head><title>Bem-vindo</title></head>
+<body>
+  <h1>Bem-vindo <%= user ? user : "Visitante" %></h1>
+  <% if (user) { %>
+    <a href="/tasks">Ver Tarefas</a> | <a href="/logout">Sair</a>
+  <% } else { %>
+    <a href="/login">Login</a> | <a href="/register">Cadastro</a>
+  <% } %>
+</body>
+</html>
