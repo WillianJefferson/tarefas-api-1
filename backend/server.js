@@ -18,7 +18,7 @@ const DB_FILE = path.join(__dirname, 'db.json');
 // configurar o body-parser para analisar o corpo das requisições
 app.use(bodyParser.json());
 
-app.use(cors);
+app.use(cors());
 
 // configurar o express para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -56,10 +56,49 @@ app.post('/tarefas', (req, res) => {
     // adicionar a nova tarefa ao array de tarefas
     data.tarefas.push(novaTarefa);
     // escrever o arquivo de tarefas
-    fs.writeFileSync(DB_FILE, JSON.stringify({tarefas: data}));
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
     // enviar a resposta com status 201 e a nova tarefa
     res.status(201).json(novaTarefa);
 });
+
+app.put('/tarefas/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const { tarefa, descricao } = req.body;
+
+    if (!tarefa || !descricao) {
+        return res.status(400).json({ message: 'Tarefa e descrição são obrigatórios' });
+    }
+
+    const data = JSON.parse(fs.readFileSync(DB_FILE));
+    const tarefaIndex = data.tarefas.findIndex(t => t.id === id);
+
+    if (tarefaIndex === -1) {
+        return res.status(404).json({ message: 'Tarefa não encontrada' });
+    }
+
+    data.tarefas[tarefaIndex].tarefa = tarefa;
+    data.tarefas[tarefaIndex].descricao = descricao;
+
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+
+    res.json(data.tarefas[tarefaIndex]);
+});
+
+app.delete('/tarefas/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const data = JSON.parse(fs.readFileSync(DB_FILE));
+    const tarefaIndex = data.tarefas.findIndex(t => t.id === id);
+
+    if (tarefaIndex === -1) {
+        return res.status(404).json({ message: 'Tarefa não encontrada' });
+    }
+
+    const tarefaRemovida = data.tarefas.splice(tarefaIndex, 1)[0];
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
+
+    res.json(tarefaRemovida);
+});
+
 
 
 // iniciar o servidor na porta 3000

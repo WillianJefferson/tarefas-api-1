@@ -3,13 +3,23 @@ body {
     line-height: 1.6;
     margin: 0;
     padding: 20px;
-    background: #FFFFFF;
+    background-color: #dfdfdf;
+}
+#tarefasList{
+    .tarefa-item{
+        margin-bottom: 1rem;
+        background-color: #303d38;
+        border-left: 4px solid #fff;
+        padding: 1px 0px 20px 20px;
+        border-radius: 12px;
+    }
 }
 
 .container{
     max-width: 800px;
     margin: 0 auto;
-    background: #87cefa;
+    color: #fff;
+    background: #404b52;
     padding: 20px;
     border-radius: 8px;
 }
