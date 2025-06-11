@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('tarefaForm');
-    const tarefasList = document.getElementById('tarefasList');
+    const form = document.getElementById('formtarefas');
+    const tarefasList = document.getElementById('tarefaslista');
 
     carregarTarefas();
 
@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
         e.preventDefault();
 
         const tarefa = document.getElementById('tarefa').value;
-        const descricao = document.getElementById('descricao').value;
+        const descricao = document.getElementById('desc').value;
 
         adicionarTarefa({ tarefa, descricao });
 
