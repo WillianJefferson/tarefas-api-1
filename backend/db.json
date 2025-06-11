@@ -1,11 +1,16 @@
 {
-    "tarefas": [
-        {
-            "id": 12121212099,
-            "tarefa": "Separar material de pesca",
-            "descricao": "Vamos realizar uma pescaria",
-            "dataCriacao": "2025-06-06T23:23:31.539Z"
-
-        }
-    ]
+  "tarefas": [
+    {
+      "id": 12121212099,
+      "tarefa": "Separar material de pesca",
+      "descricao": "Vamos realizar uma pescaria",
+      "dataCriacao": "2025-06-06T23:23:31.539Z"
+    },
+    {
+      "id": 1749596954663,
+      "tarefa": "Bolas",
+      "descricao": "Bolas Grandes e Roliças",
+      "dataCriacao": "2025-06-10T23:09:14.663Z"
+    }
+  ]
 }

@@ -18,7 +18,7 @@ const DB_FILE = path.join(__dirname, 'db.json');
 // configurar o body-parser para analisar o corpo das requisições
 app.use(bodyParser.json());
 
-app.use(cors);
+app.use(cors());
 
 // configurar o express para servir arquivos estáticos
 app.use(express.static(path.join(__dirname, '../frontend')));
@@ -56,7 +56,7 @@ app.post('/tarefas', (req, res) => {
     // adicionar a nova tarefa ao array de tarefas
     data.tarefas.push(novaTarefa);
     // escrever o arquivo de tarefas
-    fs.writeFileSync(DB_FILE, JSON.stringify({tarefas: data}));
+    fs.writeFileSync(DB_FILE, JSON.stringify(data, null, 2));
     // enviar a resposta com status 201 e a nova tarefa
     res.status(201).json(novaTarefa);
 });

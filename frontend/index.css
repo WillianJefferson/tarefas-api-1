@@ -1,0 +1,78 @@
+html{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background: #000000;
+}
+
+h1, h2, h3, p, small{
+    margin: 1rem 2rem 15px 1rem;
+}
+
+.box {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #0BDA51;
+    background: linear-gradient(0deg,#0bda51 0%, rgba(0, 106, 78, 1) 100%);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.linhas{
+    margin: 0 2rem 15px 1rem;
+}
+
+input{
+    background-color: #74C365;
+    width: 720px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 4px;
+    resize: none;  
+}
+
+textarea {
+    background-color: #74C365;
+    height: 120px;
+    width: 720px;
+    box-sizing: border-box;
+    border: 2px solid white;
+    border-radius: 4px;
+    resize: none;
+}
+
+input::placeholder, textarea::placeholder{
+    color: black;
+}
+
+button{
+    margin-left: 1rem;
+    padding: 10px;
+    background-color: #004c08;
+    color: white;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 1rem;
+    transition-duration: 0.4s;
+}
+
+button:hover{
+    border: 1px solid white;
+    background-color: #034d1c;
+    color: white;
+}
+
+.tarefa-item{
+    margin-left: 1rem;
+    max-width: 720px;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid white;
+    border-radius: 8px;
+    background-color: #74C365;
+    color: black;
+}
