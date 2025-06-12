@@ -1,4 +1,26 @@
 {
+<<<<<<< HEAD
+  "tarefas": [
+    {
+      "id": 12121212099,
+      "tarefa": "Separar material de pesca",
+      "descricao": "Vamos realizar uma pescaria",
+      "dataCriacao": "2025-06-06T23:23:31.539Z"
+    },
+    {
+      "id": 1749596360399,
+      "tarefa": "fazer tarefa",
+      "descricao": "fazer tarefa api",
+      "dataCriacao": "2025-06-10T22:59:20.399Z"
+    },
+    {
+      "id": 1749596413640,
+      "tarefa": "Corrigir bug",
+      "descricao": "Correção de bugs",
+      "dataCriacao": "2025-06-10T23:00:13.640Z"
+    }
+  ]
+=======
     "tarefas": [
         {
             "id": 12121212099,
@@ -8,4 +30,5 @@
 
         }
     ]
+>>>>>>> 282a95e689f1a41f9c58fe8b5e240ec5d3c19d23
 }
