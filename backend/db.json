@@ -1,11 +1,28 @@
 {
-    "tarefas": [
-        {
-            "id": 12121212099,
-            "tarefa": "Separar material de pesca",
-            "descricao": "Vamos realizar uma pescaria",
-            "dataCriacao": "2025-06-06T23:23:31.539Z"
-
-        }
-    ]
+  "tarefas": [
+    {
+      "id": 12121212099,
+      "tarefa": "Separar material de pesca",
+      "descricao": "Vamos realizar uma pescaria",
+      "dataCriacao": "2025-06-06T23:23:31.539Z"
+    },
+    {
+      "id": 1749683155890,
+      "tarefa": "carro",
+      "descricao": "azul",
+      "dataCriacao": "2025-06-11T23:05:55.890Z"
+    },
+    {
+      "id": 1749768357778,
+      "tarefa": "bicicleta",
+      "descricao": "preta",
+      "dataCriacao": "2025-06-12T22:45:57.778Z"
+    },
+    {
+      "id": 1749768716287,
+      "tarefa": "moto",
+      "descricao": "cg titan 166cc",
+      "dataCriacao": "2025-06-12T22:51:56.287Z"
+    }
+  ]
 }
