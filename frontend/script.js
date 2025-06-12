@@ -24,7 +24,11 @@ document.addEventListener('DOMContentLoaded', () => {
                 headers: {
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({ tarefa, descricao })
+                body: JSON.stringify({ 
+                    tarefa, 
+                    descricao, 
+                    dataCriacao: new Date().toISOString() // Adiciona a data de criação
+                })
             });
 
             if (!response.ok) {
