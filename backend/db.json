@@ -1,11 +1,22 @@
 {
     "tarefas": [
         {
-            "id": 12121212099,
-            "tarefa": "Separar material de pesca",
-            "descricao": "Vamos realizar uma pescaria",
-            "dataCriacao": "2025-06-06T23:23:31.539Z"
-
+            "id": 1749601096778,
+            "tarefa": "Fazer duas Pizza gigante",
+            "descricao": "Fazer a aquisição e mesonplace dos igredientes, preparar a massa e  ",
+            "dataCriacao": "2025-06-11T00:18:16.778Z"
+        },
+        {
+            "id": 1749601204527,
+            "tarefa": "Fazer duas Pizza gigante",
+            "descricao": "Fazer a aquisição e mesonplace dos igredientes, preparar a massa e  ",
+            "dataCriacao": "2025-06-11T00:20:04.527Z"
+        },
+        {
+            "id": 1749601546845,
+            "tarefa": "Fazer duas Pizza gigante",
+            "descricao": "Adquirir os ingredientes e fazer o mesonplace. Preparar a massa, pré-assar, rechear, assar e servir",
+            "dataCriacao": "2025-06-11T00:25:46.845Z"
         }
     ]
 }
