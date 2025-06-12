@@ -17,6 +17,12 @@
       "tarefa": "bicicleta",
       "descricao": "preta",
       "dataCriacao": "2025-06-12T22:45:57.778Z"
+    },
+    {
+      "id": 1749768716287,
+      "tarefa": "moto",
+      "descricao": "cg titan 166cc",
+      "dataCriacao": "2025-06-12T22:51:56.287Z"
     }
   ]
 }

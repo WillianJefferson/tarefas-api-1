@@ -45,3 +45,11 @@ button{
 button:hover{
     background: #4cb84c;
 }
+.editar-btn {
+    background-color: #ffc107;
+    margin-right: 5px;
+}
+.excluir-btn {
+    background-color: #dc3545;
+    color: white;
+}
