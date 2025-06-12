@@ -11,6 +11,12 @@
       "tarefa": "carro",
       "descricao": "azul",
       "dataCriacao": "2025-06-11T23:05:55.890Z"
+    },
+    {
+      "id": 1749768357778,
+      "tarefa": "bicicleta",
+      "descricao": "preta",
+      "dataCriacao": "2025-06-12T22:45:57.778Z"
     }
   ]
 }
