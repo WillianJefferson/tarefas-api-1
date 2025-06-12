@@ -1,11 +1,27 @@
 {
-    "tarefas": [
-        {
-            "id": 12121212099,
-            "tarefa": "Separar material de pesca",
-            "descricao": "Vamos realizar uma pescaria",
-            "dataCriacao": "2025-06-06T23:23:31.539Z"
-
-        }
-    ]
+  "tarefas": [
+    {
+      "id": "12121212099",
+      "tarefa": "Separar material de pesca",
+      "descricao": "Vamos realizar uma pescaria",
+      "dataCriacao": "2025-06-06T23:23:31.539Z"
+    },
+    {
+      "id": "2d82",
+      "tarefa": "carro",
+      "descricao": "123"
+    },
+    {
+      "id": "cb0c",
+      "tarefa": "roupa",
+      "descricao": "lavar\n",
+      "dataCriacao": "2025-06-11T22:43:44.984Z"
+    },
+    {
+      "id": "df03",
+      "tarefa": "roupa",
+      "descricao": "1263\n",
+      "dataCriacao": "2025-06-11T23:30:49.463Z"
+    }
+  ]
 }
