@@ -1,0 +1,27 @@
+{
+  "name": "tarefas-api-1",
+  "version": "1.0.0",
+  "description": "Cadastro e Listagem de tarefas com Node.js",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcosAcioly/tarefas-api-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcosAcioly/tarefas-api-1/issues"
+  },
+  "homepage": "https://github.com/MarcosAcioly/tarefas-api-1#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "nodemon": "^3.1.10"
+  }
+}
