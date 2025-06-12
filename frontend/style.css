@@ -17,13 +17,12 @@ body {
   max-width: 600px;
   margin: 40px auto;
   background: #fff;
-  padding: 32px 28px 28px 28px;
+  padding: 32px 28px;
   border-radius: 16px;
   box-shadow: 0 6px 32px rgba(0, 0, 0, 0.1), 0 1.5px 6px rgba(0, 0, 0, 0.08);
 }
 
-h1,
-h2 {
+h1, h2 {
   text-align: center;
   color: #2c3e50;
   margin-bottom: 24px;
@@ -47,8 +46,8 @@ textarea {
   border: 1.5px solid #b0c4de;
   border-radius: 6px;
   font-size: 15px;
-  transition: border 0.2s;
   background: #f8fafc;
+  transition: border 0.2s;
 }
 
 input[type="text"]:focus,
@@ -63,27 +62,38 @@ textarea {
   resize: vertical;
 }
 
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
 button {
   background: linear-gradient(90deg, #5cb85c 60%, #48c6ef 100%);
   color: white;
   border: none;
-  padding: 8px 16px; /* menor */
+  padding: 8px 16px;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 14px; /* menor */
-  width: auto; /* para deixar menor */
+  font-size: 14px;
   font-weight: bold;
   letter-spacing: 1px;
   box-shadow: 0 2px 8px rgba(76, 184, 76, 0.08);
   transition: background 0.2s, box-shadow 0.2s;
-  display: block;
-  margin: 12px auto; /* centraliza */
 }
-
 
 button:hover {
   background: linear-gradient(90deg, #48c6ef 0%, #5cb85c 100%);
   box-shadow: 0 4px 16px rgba(76, 184, 76, 0.13);
+}
+
+#resetarBtn {
+  background: #e74c3c;
+}
+
+#resetarBtn:hover {
+  background: #c0392b;
 }
 
 #tarefasList {
@@ -95,7 +105,7 @@ button:hover {
   border-left: 5px solid #5cb85c;
   border-radius: 6px;
   margin-bottom: 18px;
-  padding: 18px 18px 12px 18px;
+  padding: 18px;
   box-shadow: 0 1px 6px rgba(76, 184, 76, 0.07);
   transition: box-shadow 0.2s;
 }
@@ -111,48 +121,54 @@ button:hover {
 }
 
 .tarefa-item p {
-  margin-bottom: 8px;
   color: #34495e;
 }
 
-.tarefa-item small {
+.tarefa-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.tarefa-footer small {
   color: #888;
   font-size: 0.95em;
+}
+
+.tarefa-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.deletar-btn,
+.editar-btn {
+  width: 70px;
+  padding: 6px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.95em;
+  font-weight: bold;
+  text-align: center;
+  transition: 0.2s;
 }
 
 .deletar-btn {
   background: #e74c3c;
   color: #fff;
   border: none;
-  padding: 6px 12px;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 0.9em;
-  margin: 10px auto; /* centraliza */
-  display: block;
-  transition: background 0.2s;
 }
-
 
 .deletar-btn:hover {
   background: #c0392b;
 }
 
-#resetarBtn {
-  background: #e74c3c;
+.editar-btn {
+  background: linear-gradient(90deg, #5cb85c 60%, #48c6ef 100%);
   color: #fff;
   border: none;
-  padding: 8px 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  width: auto;
-  font-weight: bold;
-  display: block;
-  margin: 18px auto; /* centraliza */
-  transition: background 0.2s;
 }
 
-#resetarBtn:hover {
-  background: #c0392b;
+.editar-btn:hover {
+  background: linear-gradient(90deg, #48c6ef 0%, #5cb85c 100%);
 }

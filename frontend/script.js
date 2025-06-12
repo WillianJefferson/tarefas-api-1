@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     carregarTarefas();
 
-    // Adicionar um evento de submit ao formulário
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
 
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
         form.reset();
     });
 
-    // Função para adicionar uma tarefa
     async function adicionarTarefa({ tarefa, descricao }) {
         try {
             const response = await fetch('http://localhost:3000/tarefas', {
@@ -33,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify({
                     tarefa,
                     descricao,
-                    dataCriacao: new Date().toISOString() // Adiciona a data de criação
+                    dataCriacao: new Date().toISOString()
                 })
             });
 
@@ -48,7 +46,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Função para carregar as tarefas
     async function carregarTarefas() {
         try {
             const response = await fetch('http://localhost:3000/tarefas');
@@ -61,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Função para deletar uma tarefa (fora de exibirTarefas)
-    async function deletarTarefa(id){
+    async function deletarTarefa(id) {
         try {
             await fetch(`http://localhost:3000/tarefas/${id}`, {
                 method: 'DELETE'
@@ -72,11 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Função Editar uma tarefa
-
     async function atualizarTarefa(id, { tarefa, descricao }) {
         try {
-            await fetch (`http://localhost:3000/tarefas/${id}`, {
+            await fetch(`http://localhost:3000/tarefas/${id}`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
@@ -89,7 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    // Função para exibir as tarefas
     function exibirTarefas(tarefas) {
         tarefasList.innerHTML = '';
 
@@ -104,14 +97,17 @@ document.addEventListener('DOMContentLoaded', () => {
             div.innerHTML = `
                 <h3>${tarefa.tarefa}</h3>
                 <p>${tarefa.descricao}</p>
-                <small>Data de criação: ${tarefa.dataCriacao ? new Date(tarefa.dataCriacao).toLocaleDateString() : ''}</small>
-                <button class="deletar-btn" data-id="${tarefa.id}">Deletar</button>
-                <button class="editar-btn" data-id="${tarefa.id}">Editar</button>
+                <div class="tarefa-footer">
+                    <small>Data de criação: ${tarefa.dataCriacao ? new Date(tarefa.dataCriacao).toLocaleDateString() : ''}</small>
+                    <div class="tarefa-actions">
+                        <button class="deletar-btn" data-id="${tarefa.id}">Deletar</button>
+                        <button class="editar-btn" data-id="${tarefa.id}">Editar</button>
+                    </div>
+                </div>
             `;
             tarefasList.appendChild(div);
         });
 
-        // Adiciona evento aos botões de deletar
         document.querySelectorAll('.deletar-btn').forEach(btn => {
             btn.addEventListener('click', async (e) => {
                 const id = e.target.getAttribute('data-id');

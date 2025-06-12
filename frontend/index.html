@@ -1,30 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Tarefas</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Cadastro de Tarefas</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <div class="container">
-        <h1>Cadastro de Tarefas</h1>
-        <form id="tarefaForm">
-            <div class="form-group">
-                <label for="tarefa">Tarefa</label>
-                <input type="text" id="tarefa" name="tarefa">
-            </div>
-            <div class="form-group">
-                <label for="descricao">Descrição</label>
-                <textarea type="text" id="descricao" name="descricao"></textarea>
-            </div>
-            <button type="submit">Salvar</button>
-        </form>
-        <button id="resetarBtn" style="margin-bottom:18px;background:#e74c3c;">Resetar</button>
-        <h2>Tarefas Cadastradas</h2>
-        <div id="tarefasList"></div>
-    </div>
-</body>
+  <div class="container">
+    <h1>Cadastro de Tarefas</h1>
+    <form id="tarefaForm">
+      <div class="form-group">
+        <label for="tarefa">Tarefa</label>
+        <input type="text" id="tarefa" name="tarefa" />
+      </div>
+      <div class="form-group">
+        <label for="descricao">Descrição</label>
+        <textarea id="descricao" name="descricao"></textarea>
+      </div>
+      <div class="button-group">
+        <button type="submit">Salvar</button>
+        <button type="button" id="resetarBtn">Resetar</button>
+      </div>
+    </form>
 
-<script src="script.js"></script>
+    <h2>Tarefas Cadastradas</h2>
+    <div id="tarefasList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
 </html>
