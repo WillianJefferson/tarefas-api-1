@@ -1,0 +1,13 @@
+<h1>Tarefas de <%= user %></h1>
+<form method="POST" action="/tasks">
+  <input name="task" placeholder="Nova Tarefa" required />
+  <button type="submit">Adicionar</button>
+</form>
+
+<ul>
+  <% tasks.forEach(task => { %>
+    <li><%= task %></li>
+  <% }) %>
+</ul>
+
+<a href="/logout">Sair</a>
