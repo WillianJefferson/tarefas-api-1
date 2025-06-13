@@ -1,12 +1,6 @@
 {
     "tarefas": [
         {
-            "id": 1749601096778,
-            "tarefa": "Fazer duas Pizza gigante",
-            "descricao": "Fazer a aquisição e mesonplace dos igredientes, preparar a massa e  ",
-            "dataCriacao": "2025-06-11T00:18:16.778Z"
-        },
-        {
             "id": 1749601204527,
             "tarefa": "Fazer duas Pizza gigante",
             "descricao": "Fazer a aquisição e mesonplace dos igredientes, preparar a massa e  ",
@@ -17,6 +11,60 @@
             "tarefa": "Fazer duas Pizza gigante",
             "descricao": "Adquirir os ingredientes e fazer o mesonplace. Preparar a massa, pré-assar, rechear, assar e servir",
             "dataCriacao": "2025-06-11T00:25:46.845Z"
+        },
+        {
+            "id": 1749766941900,
+            "tarefa": "Fazer duas Pizza gigante",
+            "descricao": "Compra os ingredientes e fazer o mesonplace",
+            "dataCriacao": "2025-06-12T22:22:21.900Z"
+        },
+        {
+            "id": 1749771019856,
+            "tarefa": "Fazer duas Pizza gigante",
+            "descricao": "adquirir ingredientes",
+            "dataCriacao": "2025-06-12T23:30:19.856Z"
+        },
+        {
+            "id": 1749772616431,
+            "tarefa": "ir ao mercado",
+            "descricao": "comprar laranjas",
+            "dataCriacao": "2025-06-12T23:56:56.431Z"
+        },
+        {
+            "id": 1749773230141,
+            "tarefa": "ir ao mercado",
+            "descricao": "compra galeto",
+            "dataCriacao": "2025-06-13T00:07:10.141Z"
+        },
+        {
+            "id": 1749773500739,
+            "tarefa": "ir ao mercado",
+            "descricao": "macaxeira",
+            "dataCriacao": "2025-06-13T00:11:40.739Z"
+        },
+        {
+            "id": 1749773928096,
+            "tarefa": "ir ao mercado",
+            "descricao": "Comprar maracujá",
+            "dataCriacao": "2025-06-13T00:18:48.096Z"
+        },
+        {
+            "id": 1749774335447,
+            "tarefa": "ir ao mercado",
+            "descricao": "compara carnes e peixes",
+            "dataCriacao": "2025-06-13T00:25:35.447Z"
+        },
+        {
+            "id": 1749774739660,
+            "tarefa": "ir ao mercado",
+            "descricao": "Compra jaca mole.",
+            "dataCriacao": "2025-06-13T00:32:19.660Z"
+        },
+        {
+            "id": 1749774884008,
+            "tarefa": "ir ao mercado",
+            "descricao": "compra feijão.",
+            "dataCriacao": "2025-06-13T00:34:44.008Z"
         }
     ]
 }

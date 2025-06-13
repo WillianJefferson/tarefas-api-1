@@ -67,6 +67,36 @@ app.post('/tarefas', async (req, res) => {
     }
 });
 
+// Rota para editar uma tarefa
+app.put('/tarefas/:id', async (req, res) => {
+    try {
+        const { tarefa, descricao } = req.body;
+        const tarefaId = parseInt(req.params.id);
+
+        if (!tarefa) {
+            return res.status(400).json({ erro: 'Nome da tarefa é obrigatório' });
+        }
+
+        const dados = await lerTarefas();
+        const tarefaIndex = dados.tarefas.findIndex(t => t.id === tarefaId);
+
+        if (tarefaIndex === -1) {
+            return res.status(404).json({ erro: 'Tarefa não encontrada' });
+        }
+
+        dados.tarefas[tarefaIndex] = {
+            ...dados.tarefas[tarefaIndex],
+            tarefa,
+            descricao: descricao || dados.tarefas[tarefaIndex].descricao
+        };
+
+        await salvarTarefas(dados);
+        res.json(dados.tarefas[tarefaIndex]);
+    } catch (erro) {
+        res.status(500).json({ erro: 'Erro ao editar tarefa' });
+    }
+});
+
 // Rota para remover uma tarefa
 app.delete('/tarefas/:id', async (req, res) => {
     try {
