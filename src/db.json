@@ -1,0 +1,18 @@
+{
+  "tarefas": [
+    {
+      "id": "1749688293469",
+      "tarefa": "Fazer duas Pizza gigante",
+      "descricao": "Adquirir os ingredientes para duas pizzas gigantes.",
+      "status": "pendente",
+      "criadoEm": "2025-06-12T00:31:33.469Z"
+    },
+    {
+      "id": "1749688361307",
+      "tarefa": "Corrigir bugs",
+      "descricao": "Realizar todo o código do backend.",
+      "status": "pendente",
+      "criadoEm": "2025-06-12T00:32:41.307Z"
+    }
+  ]
+}
